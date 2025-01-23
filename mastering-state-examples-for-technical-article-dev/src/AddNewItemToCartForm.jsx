@@ -3,6 +3,7 @@ import React from "react";
 function AddNewItemToCartForm({ cartItems, setCartItems }) {
     const [inputValue, setInputValue] = React.useState('') //setting another state for the input value, local state, to keep input handling local
     const [priceValue, setPriceValue] = React.useState('') //setting a third state for the price value, local state to keep price handling local as well
+    const [unitValue, setUnitValue] = React.useState('') //setting a fourth state for the unit value, local state to keep unit handling local as well
 
     function addToCart(event) {
         event.preventDefault(); //prevent page refresh
@@ -11,11 +12,13 @@ function AddNewItemToCartForm({ cartItems, setCartItems }) {
             id: crypto.randomUUID(), 
             name: inputValue, 
             price: Number(priceValue), //Number converts the string to number
-        }]) //adds new items to the cart
+            unit: Number(unitValue), 
+        }]) //adds new items to the grocery cart
 
         //reset form after submission
         setInputValue('');
         setPriceValue('');
+        setUnitValue('');
     }
 
     return (
@@ -32,6 +35,19 @@ function AddNewItemToCartForm({ cartItems, setCartItems }) {
                             type="text"
                             value={inputValue}
                             onChange={event => setInputValue(event.target.value)}
+                        />
+                    </div>
+
+                    <div>
+                       <label htmlFor="new-list-form-input">
+                        Unit: 
+                        </label> 
+                        <input 
+                            required={true} 
+                            id="new-list-form-input" 
+                            type="text" 
+                            value={unitValue}
+                            onChange={event => setUnitValue(event.target.value)}
                         />
                     </div>
                     
