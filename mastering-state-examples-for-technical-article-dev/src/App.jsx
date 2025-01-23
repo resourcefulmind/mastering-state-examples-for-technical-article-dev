@@ -5,6 +5,25 @@ import './App.css'
 function App() {
   const [cartItems, setCartItems] = useState([])
 
+  // Enhanced helper function to handle multiple plural cases
+  function formatUnitType(quantity, type) {
+    const num = Number(quantity)
+    switch(type) {
+      case 'bunch(es)':
+        return num === 1 ? 'bunch' : 'bunches'
+      case 'piece(s)':
+        return num === 1 ? 'piece' : 'pieces'
+      case 'pack(s)':
+        return num === 1 ? 'pack' : 'packs'
+      case 'carton(s)':
+        return num === 1 ? 'carton' : 'cartons'
+      case 'crate(s)':
+        return num === 1 ? 'crate' : 'crates'
+      default:
+        return type  // If the units don't change (lbs, kg, gallons, liters)
+    }
+  }
+
   return (
     <>
       <div>
@@ -17,7 +36,7 @@ function App() {
           <ol className='shopping-list'>
             {cartItems.map((item) => (
               <li key={item.id}>
-                {item.name} | {item.unit} units | ${item.price.toFixed(2)} = ${(item.unit * item.price).toFixed(2)}
+                {item.name} | {item.unit} {formatUnitType(item.unit, item.unitType)} | ${item.price.toFixed(2)} = ${(item.unit * item.price).toFixed(2)}
               </li>
             ))}
           </ol>

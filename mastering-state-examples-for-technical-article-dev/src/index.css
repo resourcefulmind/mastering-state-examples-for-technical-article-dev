@@ -84,18 +84,13 @@ html, body, #root {
   display: flex;
   justify-content: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 .row > div {
   flex: 1;
+  min-width: 200px;
 }
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  text-align: left;
-}
-.row input, .row button {
+.row input, .row button, .row select {
   height: 2.5rem;
   font-size: 1.125rem;
   width: 100%;
@@ -107,4 +102,71 @@ label {
 .row button {
   flex: 1;
   margin-top: 34px;
+  min-width: 200px;
+}
+.row select {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.row > div {
+  flex: 1;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: left;
+}
+/* Media Query */
+/* @media (min-width: 748px) and (max-width: 963px) {
+  .row {
+    gap: 12px;
+  }
+  
+  .row > div {
+    flex: 1 1 100%;  /* Each input takes full width */
+  /* } */
+/* }   */
+
+@media (max-width: 768px) {
+  .row {
+    gap: 12px;  /* Slightly reduce gap on mobile */
+    flex-wrap: wrap;
+  }
+  
+  .row > div {
+    flex: 2 2 calc(50% - 12px);  /* Each input takes full width on mobile */
+    min-width: initial;
+  }
+
+  .row button {
+    flex: 1 1 100%;
+  }
+
+  .new-list-item-form {
+    margin: 0 16px;  /* Add some margin on mobile */
+  }
+}
+
+/* Media Query for mobile phones */
+@media (max-width: 480px) {
+  .row {
+    gap: 8px;  /* Smaller gap for phones */
+  }
+  
+  .row > div {
+    flex: 2 2 calc(50% - 4px);  /* Keep two items per row, adjusted for smaller gap */
+  }
+
+  .row button {
+    flex: 1 1 100%;
+  }
+
+  .new-list-item-form {
+    margin: 0 8px;
+  }
 }
