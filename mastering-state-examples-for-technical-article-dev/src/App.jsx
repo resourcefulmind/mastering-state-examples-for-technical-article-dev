@@ -17,13 +17,13 @@ function App() {
           <ol className='shopping-list'>
             {cartItems.map((item) => (
               <li key={item.id}>
-                {item.name} - ${item.price.toFixed(2)}
+                {item.name} | {item.unit} units | ${item.price.toFixed(2)} = ${(item.unit * item.price).toFixed(2)}
               </li>
             ))}
           </ol>
           {cartItems.length > 0 && (
             <div className='cart-total'>
-              Total: ${cartItems.reduce((sum, item) => sum + Number(item.price), 0).toFixed(2)}
+              Total: ${cartItems.reduce((sum, item) => sum + item.unit * Number(item.price), 0).toFixed(2)}
             </div>
           )}
         </div>
