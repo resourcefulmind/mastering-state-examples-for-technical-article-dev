@@ -28,7 +28,7 @@ function App() {
     <>
       <div>
         <h1>Grocery List Calculator</h1>
-        <p>Goal: Create your grocery list and calculate the total cost in real-time.</p>
+        <p>Goal: Create your grocery list and calculate the total cost in real-time</p>
       </div>
       <div className='wrapper'>
         <h2>Grocery Items</h2>
