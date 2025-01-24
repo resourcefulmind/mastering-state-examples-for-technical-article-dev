@@ -1,6 +1,6 @@
 # Grocery List Calculator
 
-A real-time grocery list calculator built with React that helps users manage their shopping list and calculate total costs.
+A real-time grocery list calculator built with React(Vite) that helps users manage their shopping list and calculate total costs.
 
 PS: This all started from building out an example for an article i was writing on how to master React state. Original example code was supposed to be a shopping cart but a grocery list app made more sense(I am never satisfied with just writing list in the Notes app on my phone and doing the calculations myself)
 
